@@ -115,21 +115,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                             </div>
                                             <div class="col-sm-8 text-right">
-
-                                            <div class="btn-group btn-group-lg btn-group-solid margin-bottom-10">
-                                                 <button class="btn red btn-lg" type="submit">
-                                                    <i class="fa fa-user"></i>
-                                                    Ingresar
-                                                </button>
-                                                 <button type="button" class="btn green btn-outline btn-lg">Registrarse</button>
-
-                                             </div>
-                                                <div class="forgot-password">
-                                                     <h5>
-                                                    <a href="javascript:;" id="forget-password" class="forget-password">¿Olvido su Contraseña?</a>
-                                                    </h5>
-                                                </div>
-                                            <br>
+                                                <div class="col-sm-2"> </div>
+                                                <div class="btn-group btn-group-lg btn-group-solid margin-bottom-10">
+                                                     <button class="btn red btn-lg" type="submit">
+                                                        <i class="fa fa-user"></i>
+                                                        Ingresar
+                                                    </button>
+                                                     {{-- <button type="button" class="btn green btn-outline btn-lg">Registrarse</button> --}}
+                                                    
+                                                 </div>
+                                                    <div class="forgot-password">
+                                                         <h5>
+                                                        <a href="javascript:;" id="forget-password" class="forget-password">¿Olvido su Contraseña?</a>
+                                                        </h5>
+                                                    </div>
+                                                <br>
 
                                             </div>
                                         </div>

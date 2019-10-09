@@ -3,7 +3,7 @@
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
     <head>
-        @include('admin.head')  
+        @include('master.head')  
         @yield('head')
     </head>
     <!-- END HEAD -->
@@ -14,8 +14,8 @@
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="inicio">
-                        <img src="{{ asset('images/udechorizontalp.png') }}" alt="logo" class="logo-default" /> </a>
+                    <a href="{{ asset('home') }}">
+                        <img src="{{ asset('assets/pages/img/login/doria.jpg') }}" alt="logo" class="logo-default"/> </a>
                     <div class="menu-toggler sidebar-toggler">
                         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
                     </div>
@@ -40,7 +40,7 @@
                         </div>
                     </form>
                     <!-- END HEADER SEARCH BOX -->
-                    @include('admin.login_menu')
+                    @include('master.login_menu')
                 </div>
                 <!-- END PAGE TOP -->
             </div>
@@ -52,7 +52,7 @@
         <!-- END HEADER & CONTENT DIVIDER -->
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
-            @include('admin.sidebar')
+            @include('master.sidebar')
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
@@ -144,7 +144,7 @@
         </div>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
-        @include('admin.footer')
+        @include('master.footer')
             <!-- END FOOTER -->
             <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
@@ -152,7 +152,7 @@
 <script src="../assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
             <!-- BEGIN CORE PLUGINS -->
-            @include('admin.foot')
+            @include('master.foot')
             @yield('foot')
     </body>
 
