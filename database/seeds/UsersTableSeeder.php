@@ -13,14 +13,30 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $admin = Role::where('name', '=', 'Administrador')->first();
+        $usua = Role::where('name', '=', 'Usuario')->first();
+        $jefe = Role::where('name', '=', 'Jefe')->first();
+
         $user = User::create([
                 	'name' => 'Camilo',
                 	'email' => 'camilorodri28@outlook.com',
                 	'password' => bcrypt('123')
                 ]);
+        $user->attachRole($admin);
 
-        $role = Role::where('name', '=', 'Administrador')->first();
-        $user->attachRole($role);
+        $user = User::create([
+                    'name' => 'Sebastian',
+                    'email' => 'sebastian@outlook.com',
+                    'password' => bcrypt('123')
+                ]);
+        $user->attachRole($jefe);
+
+        $user = User::create([
+                    'name' => 'Detallista',
+                    'email' => 'detallista@outlook.com',
+                    'password' => bcrypt('123')
+                ]);
+        $user->attachRole($usua);
 
     }
 }
