@@ -16,7 +16,7 @@
                     </div>
                     <!-- END PAGE HEADER-->
                     <div class="note note-info">
-                        <p> Bienvenido a la Plataforma de la Universidad de Cundinamarca - Extension Facatativa, que le ayudara a que el proceso de busqueda y prestamo de libros sea mas rapido y seguro para usted. </p>
+                        <p> Bienvenido a la Plataforma para coordinar y optimizar los procesos de la empresa Doria S.A.S utilizando conceptos de gestión de la cadena de suministro -SCM </p>
                     </div>
                 
 
