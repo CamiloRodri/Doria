@@ -26,7 +26,7 @@
                                     <div class="profile-usermenu">
                                         <ul class="nav">
                                             <li>
-                                                <a href="{{ asset('inicio') }}">
+                                                <a href="{{ asset('home') }}">
                                                     <i class="icon-home"></i> Inicio </a>
                                             </li>
                                             <li>
@@ -68,11 +68,9 @@
                                                     <li class="active">
                                                         <a href="#tab_1_1" data-toggle="tab">Cuenta</a>
                                                     </li>
+                                                
                                                     <li>
-                                                        <a href="#tab_1_2" data-toggle="tab">Cambiar Imagen</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#tab_1_3" data-toggle="tab">Cambiar Contraseña</a>
+                                                        <a href="#tab_1_2" data-toggle="tab">Cambiar Contraseña</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -107,37 +105,9 @@
                                                         </form>
                                                     </div>
                                                     <!-- END PERSONAL INFO TAB -->
-                                                    <!-- CHANGE AVATAR TAB -->
-                                                    <div class="tab-pane" id="tab_1_2">
-                                                        <p> Seleccione Nueva Imagen de Perfil </p>
-                                                        <form action="#" role="form">
-                                                            <div class="form-group">
-                                                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
-                                                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
-                                                                    <div>
-                                                                        <span class="btn default btn-file">
-                                                                            <span class="fileinput-new"> Seleccioar Imagen </span>
-                                                                            <span class="fileinput-exists"> Change </span>
-                                                                            <input type="file" name="..."> </span>
-                                                                        <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="clearfix margin-top-10">
-                                                                    <span class="label label-danger">NOTE! </span>
-                                                                    <span>La miniatura de la imagen adjunta es compatible solo con las últimas versiones de Firefox, Chrome, Opera, Safari e Internet Explorer 10 </span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="margin-top-10">
-                                                                <a href="javascript:;" class="btn green"> Editar </a>
-                                                                {{-- <a href="javascript:;" class="btn default"> Cancel </a> --}}
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <!-- END CHANGE AVATAR TAB -->
+                                            
                                                     <!-- CHANGE PASSWORD TAB -->
-                                                    <div class="tab-pane" id="tab_1_3">
+                                                    <div class="tab-pane" id="tab_1_2">
                                                         <form action="#">
                                                             <div class="form-group">
                                                                 <label class="control-label">Actual Contraseña</label>

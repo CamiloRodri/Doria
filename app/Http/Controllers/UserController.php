@@ -93,7 +93,6 @@ class UserController extends Controller
     public function update(User $user)
     {
         $data = request()->all();
-        // dd($data);
         $jefeproceso = Agente::where('nombre_agente', '=', 'Jefe de Proceso')->value('id');
         $jefe = Role::where('name', '=', 'Jefe')->first();
 
@@ -111,6 +110,26 @@ class UserController extends Controller
         // $rol_user = Role_User::where('user_id', $user->id)->value('role_id');
         // $rol = Role::find($rol_user);
         // return view('usuario.edit_usua', compact('user', 'rol'));
+    }
+
+    public function updatePerfil(User $user)
+    {
+        $data = request()->all();
+        $jefeproceso = Agente::where('nombre_agente', '=', 'Jefe de Proceso')->value('id');
+        $jefe = Role::where('name', '=', 'Jefe')->first();
+
+        $user = User::find($user->id);
+        $user->nit = $data['nit'];
+        $user->telefono = $data['number'];
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->direccion = $data['direccion'];
+        $user->update();
+        
+        $rol_user = Role_User::where('user_id', $user->id)->value('role_id');
+        $rol = Role::find($rol_user);
+
+        return view('usuario.perfil_usua', compact('user', 'rol'));
     }
 
     public function destroy(User $user)

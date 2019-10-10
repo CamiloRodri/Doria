@@ -18,15 +18,19 @@
                                     <!-- END SIDEBAR USERPIC -->
                                     <!-- SIDEBAR USER TITLE -->
                                     <div class="profile-usertitle">
-                                        <div class="profile-usertitle-name">{{ $user->name }} {{ $user->lastname }}</div>
-                                        <div class="profile-usertitle-job"> {{ $rol->name }} </div>
+                                        <div class="profile-usertitle-name">{{ $user->name }} </div>
+                                        @if( $rol->name  == 'Administrador')
+                                            <div class="profile-usertitle-job"> {{ $rol->name }} </div>
+                                        @else
+                                            <div class="profile-usertitle-job"> {{ $user->agente->nombre_agente }} </div>
+                                        @endif
                                     </div>
                                     <!-- END SIDEBAR USER TITLE -->
                                     <!-- SIDEBAR MENU -->
                                     <div class="profile-usermenu">
                                         <ul class="nav">
                                             <li>
-                                                <a href="{{ asset('inicio') }}">
+                                                <a href="{{ asset('home') }}">
                                                     <i class="icon-home"></i> Inicio </a>
                                             </li>
                                             <li>
@@ -43,7 +47,12 @@
                                 <div class="portlet light ">
                                     <div>
                                         <h4 class="profile-desc-title">Acerca de {{ $user->name }}</h4>
-                                        <span class="profile-desc-text"> {{ $rol->name }} </span>
+                                        
+                                        @if( $rol->name  == 'Administrador')
+                                            <span class="profile-desc-text"> {{ $rol->name }} </span>
+                                        @else
+                                            <span class="profile-desc-text"> {{ $user->agente->nombre_agente }} </span>
+                                        @endif
                                         <div class="margin-top-20 profile-desc-link">
                                             <i class="fa fa-globe"></i>
                                             <a href="http://www.keenthemes.com">{{ $user->email }}</a>
@@ -68,11 +77,9 @@
                                                     <li class="active">
                                                         <a href="#tab_1_1" data-toggle="tab">Cuenta</a>
                                                     </li>
+                                                    
                                                     <li>
-                                                        <a href="#tab_1_2" data-toggle="tab">Cambiar Imagen</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#tab_1_3" data-toggle="tab">Cambiar Contraseña</a>
+                                                        <a href="#tab_1_2" data-toggle="tab">Cambiar Contraseña</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -80,7 +87,7 @@
                                                 <div class="tab-content">
                                                     <!-- PERSONAL INFO TAB -->
                                                     <div class="tab-pane active" id="tab_1_1">
-                                                        <form method="POST" role="form" action="{{ url("usuario/{$user->id}") }}">
+                                                        <form method="POST" role="form" action="{{ url("usuarioPerfil/{$user->id}") }}">
                                                             {{-- {{ @method('PUT') }} --}}
                                                             {{ method_field('PUT') }}
                                                             {{ csrf_field() }}
@@ -88,12 +95,14 @@
                                                                 <label class="control-label">Nombre</label>
                                                                 <input type="text" value="{{ $user->name }}" placeholder="{{ $user->name }}" class="form-control" name="name"/> </div>
                                                             <div class="form-group">
-                                                                <label class="control-label">Apellido</label>
-                                                                <input type="text" value="{{ $user->lastname }}" placeholder="{{ $user->lastname }}" class="form-control" name="lastname"/> </div>
+                                                                <label class="control-label">Nit</label>
+                                                                <input type="text" value="{{ $user->nit }}" placeholder="{{ $user->nit }}" class="form-control" name="nit"/> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Numero de Telefono</label>
                                                                 <input type="text" value="{{ $user->telefono }}" placeholder="{{ $user->telefono }}" class="form-control" name="number"/> </div>
-                                                            
+                                                            <div class="form-group">
+                                                                <label class="control-label">Dirección</label>
+                                                                <input type="text" value="{{ $user->direccion }}" placeholder="{{ $user->direccion }}" class="form-control" name="direccion"/> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Email</label>
                                                                 <input type="text" value="{{ $user->email }}" placeholder="{{ $user->email }}" class="form-control" name="email"/> </div>
@@ -104,37 +113,9 @@
                                                         </form>
                                                     </div>
                                                     <!-- END PERSONAL INFO TAB -->
-                                                    <!-- CHANGE AVATAR TAB -->
-                                                    <div class="tab-pane" id="tab_1_2">
-                                                        <p> Seleccione Nueva Imagen de Perfil </p>
-                                                        <form action="#" role="form">
-                                                            <div class="form-group">
-                                                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                                    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
-                                                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
-                                                                    <div>
-                                                                        <span class="btn default btn-file">
-                                                                            <span class="fileinput-new"> Seleccioar Imagen </span>
-                                                                            <span class="fileinput-exists"> Change </span>
-                                                                            <input type="file" name="..."> </span>
-                                                                        <a href="javascript:;" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="clearfix margin-top-10">
-                                                                    <span class="label label-danger">NOTE! </span>
-                                                                    <span>La miniatura de la imagen adjunta es compatible solo con las últimas versiones de Firefox, Chrome, Opera, Safari e Internet Explorer 10 </span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="margin-top-10">
-                                                                <a href="javascript:;" class="btn green"> Editar </a>
-                                                                {{-- <a href="javascript:;" class="btn default"> Cancel </a> --}}
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <!-- END CHANGE AVATAR TAB -->
+                                                    
                                                     <!-- CHANGE PASSWORD TAB -->
-                                                    <div class="tab-pane" id="tab_1_3">
+                                                    <div class="tab-pane" id="tab_1_2">
                                                         <form action="#">
                                                             <div class="form-group">
                                                                 <label class="control-label">Actual Contraseña</label>

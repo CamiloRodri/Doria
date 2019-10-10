@@ -56,6 +56,8 @@ Route::get('/usuario/{user}', 'UserController@show')->name('usuario.show');
 
 Route::put('/usuario/{user}', 'UserController@update')->name('usuario.update');
 
+Route::put('/usuarioPerfil/{user}', 'UserController@updatePerfil')->name('usuarioperfil.update');
+
 Route::delete('/usuario/{user}', 'UserController@destroy')->name('usuario.destroy');
 
 Route::get('/lista', 'UserController@index')->name('usuario.list');

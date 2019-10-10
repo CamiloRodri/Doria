@@ -133,7 +133,7 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    @if(Entrust::can('ver-carrito'))
+                    @if(Entrust::can('ver-pedido'))
                         <li class="nav-item  ">
                             <a href="maps_google.html" class="nav-link ">
                                 <i class="fa fa-map"></i>
@@ -141,7 +141,7 @@
                             </a>
                         </li>
                     @endif
-                    @if(Entrust::can('ver-pedido'))
+                    @if(Entrust::can('ver-carrito'))
                         <li class="nav-item  ">
                             <a href="maps_google.html" class="nav-link ">
                                 <i class="fa fa-shopping-cart"></i>
@@ -177,19 +177,19 @@
 
             {{-- Perfil --}}
             <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
+                <a href="{{ route('usuario.perfil') }}" class="nav-link nav-toggle">
                     <i class="icon-settings"></i>
-                    <span class="title">Configuración</span>
+                    <span class="title">Perfil</span>
                     <span class="arrow"></span>
                 </a>
-                <ul class="sub-menu">
+                {{-- <ul class="sub-menu">
                     <li class="nav-item">
-                        <a href="javascript;" class="nav-link ">
+                        <a href="{{ route('usuario.perfil') }}" class="nav-link ">
                             <i class="fa fa-cog"></i>
                             <span class="title">Perfil</span>
                         </a>
                     </li>                                
-                </ul>
+                </ul> --}}
             </li>
 
         </ul>
