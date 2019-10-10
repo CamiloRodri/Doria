@@ -44,3 +44,22 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+
+
+
+//Usuario
+Route::get('/usuario/perfil', 'UserController@show_account')->name('usuario.perfil');
+
+Route::get('/usuario/{user}', 'UserController@show')->name('usuario.show');
+
+Route::put('/usuario/{user}', 'UserController@update')->name('usuario.update');
+
+Route::delete('/usuario/{user}', 'UserController@destroy')->name('usuario.destroy');
+
+Route::get('/lista', 'UserController@index')->name('usuario.list');
+
+Route::get('/nuevo', 'UserController@create')->name('usuario.create');
+
+Route::post('/crear', 'UserController@store');

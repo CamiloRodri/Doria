@@ -12,11 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->truncateTables([
-            'users', 'permissions', 'permission_role', 'roles', 'role_user'
+            'users', 'permissions', 'permission_role', 'roles', 'role_user', 'agentes'
         ]);
 
         $this->call(RolesTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
+        $this->call(AgentesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
     }
 

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'nit', 'telefono', 'direccion', 'agente_id'
     ];
 
     /**
@@ -29,4 +29,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function agente()
+    {
+       return $this->belongsTo(Agente::class);
+    }
 }

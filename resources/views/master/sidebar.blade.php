@@ -29,7 +29,7 @@
                         @endif
                         @if(Entrust::can('ver-jefes-proceso'))
                             <li class="nav-item  ">
-                                <a href="javascript;" class="nav-link ">
+                                <a href="{{ route('usuario.list') }}" class="nav-link ">
                                     <i class="icon-users"></i>
                                     <span class="title">Jefes de Proceso</span>
                                 </a>
