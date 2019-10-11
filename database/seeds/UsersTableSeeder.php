@@ -35,8 +35,8 @@ class UsersTableSeeder extends Seeder
         $user->attachRole($admin);
 
         $user = User::create([
-                    'name' => 'Sebastian',
-                    'email' => 'sebastian@outlook.com',
+                    'name' => 'Jefe de Proceso',
+                    'email' => 'jefe@outlook.com',
                     'nit' => '4865161',
                     'telefono' => '8429566',
                     'direccion' => 'Calle 1 # 2 - 56',
@@ -53,6 +53,28 @@ class UsersTableSeeder extends Seeder
                     'direccion' => 'Calle 15 # 6 - 77',
                     'password' => bcrypt('123'),
                     'agente_id' => $detallista
+                ]);
+        $user->attachRole($usua);
+
+        $user = User::create([
+                    'name' => 'Distribuidor',
+                    'email' => 'distribuidor@outlook.com',
+                    'nit' => '687978',
+                    'telefono' => '894256',
+                    'direccion' => 'Calle 15 # 6 - 77',
+                    'password' => bcrypt('123'),
+                    'agente_id' => $distribuidor
+                ]);
+        $user->attachRole($usua);
+
+        $user = User::create([
+                    'name' => 'Proveedor',
+                    'email' => 'proveedor@outlook.com',
+                    'nit' => '687978',
+                    'telefono' => '894256',
+                    'direccion' => 'Calle 15 # 6 - 77',
+                    'password' => bcrypt('123'),
+                    'agente_id' => $proveedor
                 ]);
         $user->attachRole($usua);
 

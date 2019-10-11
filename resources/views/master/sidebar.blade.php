@@ -66,7 +66,7 @@
                         @endif
                         @if(Entrust::can('ver-distribuidores'))
                             <li class="nav-item  ">
-                                <a href="javascript;" class="nav-link ">
+                                <a href="{{ route('distribuidor.list') }}" class="nav-link ">
                                     <i class="fa fa-bookmark"></i>
                                     <span class="title">Distribuidores</span>
                                 </a>

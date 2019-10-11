@@ -52,11 +52,13 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 //Usuario
 Route::get('/usuario/perfil', 'UserController@show_account')->name('usuario.perfil');
 
+Route::put('/usuarioPerfil/{user}', 'UserController@updatePerfil')->name('usuarioperfil.update');
+
+
+//Jefe de Proceso
 Route::get('/usuario/{user}', 'UserController@show')->name('usuario.show');
 
 Route::put('/usuario/{user}', 'UserController@update')->name('usuario.update');
-
-Route::put('/usuarioPerfil/{user}', 'UserController@updatePerfil')->name('usuarioperfil.update');
 
 Route::delete('/usuario/{user}', 'UserController@destroy')->name('usuario.destroy');
 
@@ -65,3 +67,23 @@ Route::get('/lista', 'UserController@index')->name('usuario.list');
 Route::get('/nuevo', 'UserController@create')->name('usuario.create');
 
 Route::post('/crear', 'UserController@store');
+
+//Distribuidor
+Route::get('/distribuidor/{user}', 'DistribuidorController@show')->name('distribuidor.show');
+
+Route::put('/distribuidor/{user}', 'DistribuidorController@update')->name('distribuidor.update');
+
+Route::delete('/distribuidor/{user}', 'DistribuidorController@destroy')->name('distribuidor.destroy');
+
+Route::get('/distribuidor.lista', 'DistribuidorController@index')->name('distribuidor.list');
+
+Route::get('/distribuidor.nuevo', 'DistribuidorController@create')->name('distribuidor.create');
+
+Route::post('/distribuidor.crear', 'DistribuidorController@store');
+
+
+
+
+
+
+
