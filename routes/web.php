@@ -81,6 +81,32 @@ Route::get('/distribuidor.nuevo', 'DistribuidorController@create')->name('distri
 
 Route::post('/distribuidor.crear', 'DistribuidorController@store');
 
+//Detallista
+Route::get('/detallista/{user}', 'DetallistaController@show')->name('detallista.show');
+
+Route::put('/detallista/{user}', 'DetallistaController@update')->name('detallista.update');
+
+Route::delete('/detallista/{user}', 'DetallistaController@destroy')->name('detallista.destroy');
+
+Route::get('/detallista.lista', 'DetallistaController@index')->name('detallista.list');
+
+Route::get('/detallista.nuevo', 'DetallistaController@create')->name('detallista.create');
+
+Route::post('/detallista.crear', 'DetallistaController@store');
+
+//Detallista
+Route::get('/proveedor/{user}', 'ProveedorController@show')->name('proveedor.show');
+
+Route::put('/proveedor/{user}', 'ProveedorController@update')->name('proveedor.update');
+
+Route::delete('/proveedor/{user}', 'ProveedorController@destroy')->name('proveedor.destroy');
+
+Route::get('/proveedor.lista', 'ProveedorController@index')->name('proveedor.list');
+
+Route::get('/proveedor.nuevo', 'ProveedorController@create')->name('proveedor.create');
+
+Route::post('/proveedor.crear', 'ProveedorController@store');
+
 
 
 

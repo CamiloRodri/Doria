@@ -1,7 +1,7 @@
 @extends('master.header')
 
 @section('content')
-    @if(Entrust::can('editar-distribuidores'))    
+    @if(Entrust::can('editar-proveedores'))    
 					<h1 class="page-title"> Editar Perfil
                     </h1>
                     <!-- END PAGE HEADER-->
@@ -78,7 +78,7 @@
                                                 <div class="tab-content">
                                                     <!-- PERSONAL INFO TAB -->
                                                     <div class="tab-pane active" id="tab_1_1">
-                                                        <form method="POST" role="form" action="{{ url("distribuidor/{$user->id}") }}">
+                                                        <form method="POST" role="form" action="{{ url("proveedor/{$user->id}") }}">
                                                             {{-- {{ @method('PUT') }} --}}
                                                             {{ method_field('PUT') }}
                                                             {{ csrf_field() }}

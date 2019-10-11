@@ -50,7 +50,7 @@
                     <ul class="sub-menu">
                         @if(Entrust::can('ver-proveedores'))
                             <li class="nav-item ">
-                                <a href="javascript;" class="nav-link ">
+                                <a href="{{ route('proveedor.list') }}" class="nav-link ">
                                     <i class="fa fa-truck"></i>
                                     <span class="title">Proveedores</span>
                                 </a>
@@ -58,7 +58,7 @@
                         @endif
                         @if(Entrust::can('ver-detallistas'))
                             <li class="nav-item  ">
-                                <a href="javascript;" class="nav-link ">
+                                <a href="{{ route('detallista.list') }}" class="nav-link ">
                                     <i class="fa fa-male"></i>
                                     <span class="title">Detallistas</span>
                                 </a>

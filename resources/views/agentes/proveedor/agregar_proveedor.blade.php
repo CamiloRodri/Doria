@@ -1,7 +1,7 @@
 @extends ('master.header')
 
 @section('content')  
-@if(Entrust::can('registrar-distribuidores'))                
+@if(Entrust::can('registrar-proveedores'))                
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
@@ -9,13 +9,13 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-bubble font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">Agregar Distribuidor</span>
+                        <span class="caption-subject font-green bold uppercase">Agregar Proveedor</span>
                     </div>
                 </div>
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
 
-                    <form method="POST" action="{{ url('distribuidor.crear') }}" id="form_sample_2" class="form-horizontal">
+                    <form method="POST" action="{{ url('proveedor.crear') }}" id="form_sample_2" class="form-horizontal">
                         {{ csrf_field() }}
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
@@ -104,7 +104,7 @@
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
                                     <button type="submit" class="btn green">Registrar</button>
-                                    <a href="{{ asset('distribuidor.lista') }}">
+                                    <a href="{{ asset('proveedor.lista') }}">
                                         <button type="button" class="btn default">Cancelar</button>
                                     </a>
                                 </div>
