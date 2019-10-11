@@ -15,7 +15,12 @@ class CreateInventarioTable extends Migration
     {
         Schema::create('inventario', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('cantidad');
+            $table->float('precio_neto');
+            $table->integer('producto_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('producto_id')->references('id')->on('producto');
         });
     }
 

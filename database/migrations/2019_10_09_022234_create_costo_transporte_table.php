@@ -15,6 +15,8 @@ class CreateCostoTransporteTable extends Migration
     {
         Schema::create('costo_transporte', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre_ciudad');
+            $table->float('precio');
             $table->timestamps();
         });
     }

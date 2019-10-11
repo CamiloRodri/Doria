@@ -45,10 +45,6 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-
-
-
-
 //Usuario
 Route::get('/usuario/perfil', 'UserController@show_account')->name('usuario.perfil');
 
@@ -106,10 +102,4 @@ Route::get('/proveedor.lista', 'ProveedorController@index')->name('proveedor.lis
 Route::get('/proveedor.nuevo', 'ProveedorController@create')->name('proveedor.create');
 
 Route::post('/proveedor.crear', 'ProveedorController@store');
-
-
-
-
-
-
 

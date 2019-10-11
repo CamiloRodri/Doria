@@ -15,7 +15,13 @@ class CreateProduccionTable extends Migration
     {
         Schema::create('produccion', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('cantidad');
+            $table->date('fecha');
+            $table->float('precio_produccion');
+            $table->integer('producto_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('producto_id')->references('id')->on('producto');
         });
     }
 

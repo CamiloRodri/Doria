@@ -15,7 +15,11 @@ class CreateCompraProveedorTable extends Migration
     {
         Schema::create('compra_proveedor', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('precio');
+            $table->integer('proveedor_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('proveedor_id')->references('id')->on('users');
         });
     }
 
