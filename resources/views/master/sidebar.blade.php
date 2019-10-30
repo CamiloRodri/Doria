@@ -87,7 +87,7 @@
                     <ul class="sub-menu">
                         @if(Entrust::can('ver-costo-transporte'))
                             <li class="nav-item  ">
-                                <a href="charts_amcharts.html" class="nav-link ">
+                                <a href="{{ route('costotransporte.list') }}" class="nav-link ">
                                     <i class="fa fa-dollar"></i>
                                     <span class="title">Costos de Transporte por Ciudad</span>
                                 </a>

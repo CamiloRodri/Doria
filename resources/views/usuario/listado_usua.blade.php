@@ -14,7 +14,7 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Usuarios</a>
+                <a href="#">Jefes de Proceso</a>
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>

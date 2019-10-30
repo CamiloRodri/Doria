@@ -103,3 +103,18 @@ Route::get('/proveedor.nuevo', 'ProveedorController@create')->name('proveedor.cr
 
 Route::post('/proveedor.crear', 'ProveedorController@store');
 
+
+
+//Costo Transporte
+Route::get('/costotransporte/{costo}', 'CostoTransporteController@show')->name('costotransporte.show');
+
+Route::put('/costotransporte/{costo}', 'CostoTransporteController@update')->name('costotransporte.update');
+
+Route::delete('/costotransporte/{costo}', 'CostoTransporteController@destroy')->name('costotransporte.destroy');
+
+Route::get('/costotransporte.lista', 'CostoTransporteController@index')->name('costotransporte.list');
+
+Route::get('/costotransporte.nuevo', 'CostoTransporteController@create')->name('costotransporte.create');
+
+Route::post('/costotransporte.crear', 'CostoTransporteController@store');
+

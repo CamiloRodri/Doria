@@ -5,6 +5,7 @@
     <head>
         @include('master.head')  
         @yield('head')
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
     </head>
     <!-- END HEAD -->
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
