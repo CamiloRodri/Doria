@@ -156,7 +156,7 @@
             {{-- Inventario --}}
             @if(Entrust::can('acceder-inventario'))
                 <li class="nav-item  ">
-                    <a href="javascript;" class="nav-link nav-toggle">
+                <a href="{{ route('inventario.index') }}" class="nav-link nav-toggle">
                         <i class="fa fa-list-ul"></i>
                         <span class="title">Inventario</span>
                         <span class="arrow"></span>

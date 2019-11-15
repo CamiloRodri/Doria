@@ -156,3 +156,6 @@ Route::get('/costo.lista', 'CostoController@index')->name('costo.list');
 Route::get('/costo.nuevo', 'CostoController@create')->name('costo.create');
 
 Route::post('/costo.crear', 'CostoController@store');
+
+//Inventario
+Route::resource('inventario', 'InventarioController');
