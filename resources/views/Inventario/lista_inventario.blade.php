@@ -73,54 +73,38 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                @foreach($users as $user)
-                                    <tr class="odd gradeX"> 
-                                        @foreach($rolesuser as $roluser)
-                                            @if($roluser->user_id == $user->id)
-                                                 @foreach($roles as $rol)
-                                                    @if($rol->id == $roluser->role_id)
-                                                        <!--@if($rol->name == 'Jefe')-->
-                                                            <td style="visibility: hidden" width="1" height="1"> 
-                                                                {{ $user->id }} 
-                                                            </td>                                   
-                                                            <td> {{ $user->name }} </td>
-                                                            <td>
-                                                                <a href="mailto:{{ $user->email }}"> {{ $user->email }} </a>
-                                                            </td>
-                                                            <td class="center"> {{ $user->telefono }} </td>
-                                                            <td class="center"> {{ $user->direccion }} </td>
-    
-                                                            <td>
-                                                                <div class="btn-group">
-                                                                    <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Acciones
-                                                                        <i class="fa fa-angle-down"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu pull-left" role="menu">
-                                                                        <li>
-                                                                            <a href="{{ route('usuario.show', ['id' => $user->id]) }}">
-                                                                                <i class="icon-docs"></i> Editar </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <form action="{{ route('usuario.destroy', ['id' => $user->id]) }}" method="POST">
-                                                                                {{ csrf_field() }}
-                                                                                {{ method_field('DELETE') }}
-                                                                                &nbsp&nbsp
-                                                                                <i class="icon-tag"></i>
-                                                                                <button type="submit"> Eliminar </button>
-                                                                            </form>
-                                                                        </li>
-    
-                                                                    </ul>
-                                                                </div>
-                                                            </td>
-                                                        <!--@endif-->
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        @endforeach
-                                    </tr>
-                                @endforeach
+                                <tr class="odd gradeX"> 
+                                    <td style="visibility: hidden" width="1" height="1"> 
+                                        {{ $inventario->Id }} 
+                                    </td>                                   
+                                    <td> {{ $inventario }} </td>
+                                    <td class="center"> {{ $inventario }} </td>
+
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Acciones
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-left" role="menu">
+                                                <li>
+                                                    {{-- <a href="{{ route('usuario.show', ['id' => $user->id]) }}">
+                                                        <i class="icon-docs"></i> Editar </a> --}}
+                                                </li>
+                                                <li>
+                                                    {{-- <form action="{{ route('usuario.destroy', ['id' => $user->id]) }}" method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        &nbsp&nbsp
+                                                        <i class="icon-tag"></i>
+                                                        <button type="submit"> Eliminar </button>
+                                                    </form> --}}
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </td>
+                                                
+                                </tr>
                             </tbody>
                         </table>
                     </div>

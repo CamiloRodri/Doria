@@ -10,7 +10,7 @@ class Inventario extends Model
     protected $table = 'inventario';
 
     protected $fillable = [
-        'cantidad', 'precio_neto', 'producto_id'
+        'id', 'cantidad', 'precio_neto', 'producto_id'
     ];
 
     public function carrito()
