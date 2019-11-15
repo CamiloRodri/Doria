@@ -19,7 +19,7 @@ class CreateCompraProveedorTable extends Migration
             $table->integer('proveedor_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('proveedor_id')->references('id')->on('users');
+            $table->foreign('proveedor_id')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 

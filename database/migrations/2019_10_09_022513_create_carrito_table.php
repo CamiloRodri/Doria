@@ -22,9 +22,9 @@ class CreateCarritoTable extends Migration
             $table->integer('usuario_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('inventario_id')->references('id')->on('inventario');
-            $table->foreign('costo_transporte_id')->references('id')->on('costo_transporte');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->foreign('inventario_id')->references('id')->on('inventario')->onDelete('cascade');;
+            $table->foreign('costo_transporte_id')->references('id')->on('costo_transporte')->onDelete('cascade');;
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 

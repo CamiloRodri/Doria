@@ -9,6 +9,7 @@ use App\Costo;
 use App\User;
 use App\Agente;
 use App\Producto;
+use App\CompraProveedor;
 
 class ProduccionController extends Controller
 {
@@ -22,13 +23,15 @@ class ProduccionController extends Controller
     {
     	$todayDate = Carbon::now();
         $todayDate = $todayDate->format('Y-m-d');
-        $produccion = Produccion::whereDate('fecha', '>=', Carbon::now()->format('Y-m-d'));
+        $produccion = Produccion::whereDate('fecha', Carbon::now()->format('Y-m-d'))->get();
         $cantidad = $produccion->count();
-        $costos = Costo::where('fecha', $todayDate);
+        $costos = Costo::where('produccion_id', Produccion::whereDate('fecha', Carbon::now()->format('Y-m-d'))->value('id'))->get();
         $agente = Agente::where('nombre_agente', '=', 'Proveedor')->value('id');       
-        $proveedores = User::where('agente_id', $agente)->get();
+        $users = User::all();
+        $compraproveedores = CompraProveedor::all();
+        $proveedores = CompraProveedor::all();
         //$cantidad = 1;
-    	return view('Produccion.listado_produccion', compact('produccion', 'cantidad', 'costos', 'proveedores'));     
+    	return view('Produccion.listado_produccion', compact('produccion', 'cantidad', 'costos', 'proveedores', 'users', 'compraproveedores'));     
     }
 
     public function create()
@@ -56,12 +59,39 @@ class ProduccionController extends Controller
         $produccion = Produccion::create([
             'cantidad' => $data['number'],
             'fecha' => $data['fecha'], 
-            'precio_produccion' => 1,
+            'precio_produccion' => 0,
             'producto_id' => $producto
         ]);
         
         //$user->attachRole($rol);
 
-        return redirect()->route('proveedor.list');
+        return redirect()->route('produccion.list');
+    }
+
+    public function show(Produccion $compra)
+    {   
+        $todayDate = Carbon::now();
+        $todayDate = $todayDate->format('Y-m-d');
+        $costos = Costo::where('fecha', $todayDate);
+        return view('Produccion.edit_produccion', compact('todayDate', 'costos', 'compra'));
+    }
+
+    public function update(Produccion $compra)
+    {
+        $data = request()->all();
+        $producto = Producto::where('nombre_producto', 'Spaguetti')->value('id');
+
+        $produccion = Produccion::find($compra->id);
+        $produccion->cantidad = $data['number'];
+        $produccion->fecha = $data['fecha'];
+        $produccion->update();
+
+        return redirect()->route('produccion.list');
+    }
+
+    public function destroy(Produccion $compra)
+    {
+        $compra->delete();
+        return redirect()->route('produccion.list');
     }
 }
