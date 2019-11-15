@@ -16,7 +16,18 @@ class InventarioController extends Controller
     public function index()
     {
         $inventario = Inventario::all()->first();
-        $producto = Producto::find($inventario->id);
+        
+        if(!$inventario)
+        {
+            $inventario = null;
+            $producto = null;
+            // return redirect()->back()->with('success','Fecha Error');
+        }
+        else
+        {
+            $producto = Producto::find($inventario->producto_id);
+        }
+        
 
         return view('inventario.lista_inventario', compact('inventario', 'producto'));
     }
