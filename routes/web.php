@@ -159,3 +159,6 @@ Route::post('/costo.crear', 'CostoController@store');
 
 //Inventario
 Route::resource('inventario', 'InventarioController');
+
+//Spaghetti
+Route::resource('spaghetti', 'SpaghettiController');

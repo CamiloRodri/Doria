@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventario;
-use App\Producto;
+use App\CarritoCompra;
+use App\CostoTransporte;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
-class InventarioController extends Controller
+class SpaghettiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,21 +23,8 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $inventario = Inventario::all()->first();
-        
-        if(!$inventario)
-        {
-            $inventario = null;
-            $producto = null;
-            // return redirect()->back()->with('success','Fecha Error');
-        }
-        else
-        {
-            $producto = Producto::find($inventario->producto_id);
-        }
-        
-
-        return view('Inventario.lista_inventario', compact('inventario', 'producto'));
+        $costos_transporte = CostoTransporte::pluck('nombre_ciudad', 'precio');
+        return view('Spaghetti.comprar', compact('costos_transporte'));
     }
 
     /**
@@ -50,7 +45,30 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cantidad_inventario = Inventario::all()->first();
+        $data = request()->validate([
+            'cantidad' => 'required'
+        ],[
+            'cantidad.required' => 'El campo es requerido'
+            // 'cantidad.number' => 'Solo se admiten numeros'
+        ]);
+
+        if($cantidad_inventario->cantidad >= (int)$data['cantidad'])
+        {
+            CarritoCompra::create([
+                'cantidad' => $data['cantidad'],
+                'fecha' => Carbon::now()->format('Y-m-d'),
+                'inventario_id' => '1',
+                'costo_transporte_id' => '1',
+                'usuario_id' => '1',
+            ]);
+        }
+        else
+        {
+            \Debugbar::info("pailas, muchos y no hay");
+        }
+
+        return redirect()->route('spaghetti.index');
     }
 
     /**
