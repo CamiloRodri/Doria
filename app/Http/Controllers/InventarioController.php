@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Inventario;
 use App\Producto;
+use App\Produccion;
 
 class InventarioController extends Controller
 {
@@ -62,6 +63,28 @@ class InventarioController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function showmensual()
+    {
+        return view('Utilidad.mensual');
+    }
+
+    public function showdiario()
+    {
+        //
+        return view('Utilidad.diario');
+    }
+
+     public function showutilidadmensual(Produccion $fecha)
+    {
+        return view('Utilidad.mensual');
+    }
+
+    public function showutilidaddiario(Produccion $fecha)
+    {
+        // 
+        return view('Utilidad.diario');
     }
 
     /**

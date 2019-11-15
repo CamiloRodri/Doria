@@ -172,6 +172,18 @@
                         <span class="title">Utilidad</span>
                         <span class="arrow"></span>
                     </a>
+                    <ul class="sub-menu">
+                    <li class="nav-item">
+                        <a href="{{ route('utilidad.diario') }}" class="nav-link ">
+                            <i class="fa fa-bar-chart"></i>
+                            <span class="title">Diario</span>
+                        </a>
+                        <a href="{{ route('utilidad.mensual') }}" class="nav-link ">
+                            <i class="fa fa-line-chart"></i>
+                            <span class="title">Mensual</span>
+                        </a>
+                    </li>                                
+                </ul>
                 </li>
             @endif
 
