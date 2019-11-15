@@ -118,3 +118,41 @@ Route::get('/costotransporte.nuevo', 'CostoTransporteController@create')->name('
 
 Route::post('/costotransporte.crear', 'CostoTransporteController@store');
 
+//Compra Proveedor
+Route::get('/compraproveedor/{compra}', 'CompraProveedorController@show')->name('compraproveedor.show');
+
+Route::put('/compraproveedor/{compra}', 'CompraProveedorController@update')->name('compraproveedor.update');
+
+Route::delete('/compraproveedor/{compra}', 'CompraProveedorController@destroy')->name('compraproveedor.destroy');
+
+Route::get('/compraproveedor.lista', 'CompraProveedorController@index')->name('compraproveedor.list');
+
+Route::get('/compraproveedor.nuevo', 'CompraProveedorController@create')->name('compraproveedor.create');
+
+Route::post('/compraproveedor.crear', 'CompraProveedorController@store');
+
+//Producción Diaria
+Route::get('/produccion/{compra}', 'ProduccionController@show')->name('produccion.show');
+
+Route::put('/produccion/{compra}', 'ProduccionController@update')->name('produccion.update');
+
+Route::delete('/produccion/{compra}', 'ProduccionController@destroy')->name('produccion.destroy');
+
+Route::get('/produccion.lista', 'ProduccionController@index')->name('produccion.list');
+
+Route::get('/produccion.nuevo', 'ProduccionController@create')->name('produccion.create');
+
+Route::post('/produccion.crear', 'ProduccionController@store');
+
+//Costos
+Route::get('/costo/{costo}', 'CostoController@show')->name('costo.show');
+
+Route::put('/costo/{costo}', 'CostoController@update')->name('costo.update');
+
+Route::delete('/costo/{costo}', 'CostoController@destroy')->name('costo.destroy');
+
+Route::get('/costo.lista', 'CostoController@index')->name('costo.list');
+
+Route::get('/costo.nuevo', 'CostoController@create')->name('costo.create');
+
+Route::post('/costo.crear', 'CostoController@store');

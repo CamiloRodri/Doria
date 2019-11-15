@@ -4,7 +4,7 @@
 @if(Entrust::can('ver-costo-transporte'))     
 {{-- {{ toastr.info("{{ Session::get('message') }}") }} --}}
 <!-- END THEME PANEL -->
-    <h1 class="page-title"> Lista de Costos de Transporte
+    <h1 class="page-title"> Lista de Compra a Proveedores
     </h1>
     <div class="page-bar">
         <ul class="page-breadcrumb">
@@ -14,7 +14,7 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Costos de Transporte</a>
+                <a href="#">Compra a Proveedores</a>
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
@@ -30,7 +30,7 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase"> Lista de Costos de Transporte</span>
+                        <span class="caption-subject bold uppercase"> Lista de Compra a Proveedores</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -38,8 +38,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <a href="{{ route('costotransporte.create') }}">
-                                    <button id="sample_editable_1_new" class="btn sbold green"> Nuevo Costo de Transporte                                       
+                                    <a href="{{ route('compraproveedor.create') }}">
+                                    <button id="sample_editable_1_new" class="btn sbold green"> Nueva Compra a Proveedores                                      
                                         <i class="fa fa-plus"></i> 
                                     </button>
                                     </a>
@@ -72,22 +72,29 @@
                         <thead>
                             <tr>
                                 <th style="visibility: hidden"> Numero </th>
-                                <th> Ciudad </th>
+                                <th> Proveedor </th>
                                 <th> Precio </th>
                                 <th> Editar/Eliminar </th>
                             </tr>
                         </thead>
                         <tbody>
                             
-                            @foreach($costos as $costo)
+                            @foreach($compras as $compra)
                                 <tr class="odd gradeX"> 
                                    
                                 <td style="visibility: hidden" width="1" height="1"> 
-                                    {{ $costo->id }} 
+                                    {{ $compra->id }} 
                                 </td>                                   
-                                <td> {{ $costo->nombre_ciudad }} </td>
-                                
-                                <td class="center"> {{ $costo->precio }} </td>
+                                {{-- <td> {{ $compra->proveedor_id }} </td> --}}
+                                {{-- <td> {{ $compra->user->name }} </td> --}}
+                                <td>
+                                    @foreach($users as $user)
+                                        @if($user->id == $compra->proveedor_id)
+                                            {{ $user->name }}
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td class="center"> {{ $compra->precio }} </td>
 
                                 <td>
                                     <div class="btn-group">
@@ -97,13 +104,13 @@
                                         <ul class="dropdown-menu pull-left" role="menu">
                                             @if(Entrust::can('editar-costo-transporte')) 
                                                 <li>
-                                                    <a href="{{ route('costotransporte.show', ['id' => $costo->id]) }}">
+                                                    <a href="{{ route('compraproveedor.show', ['id' => $compra->id]) }}">
                                                         <i class="icon-docs"></i> Editar </a>
                                                 </li>
                                             @endif
                                             @if(Entrust::can('eliminar-costo-transporte'))   
                                                 <li>
-                                                    <form action="{{ route('costotransporte.destroy', ['id' => $costo->id]) }}" method="POST">
+                                                    <form action="{{ route('compraproveedor.destroy', ['id' => $compra->id]) }}" method="POST">
                                                         {{ csrf_field() }}
                                                         {{ method_field('DELETE') }}
                                                         &nbsp&nbsp

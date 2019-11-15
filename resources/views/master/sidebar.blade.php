@@ -95,7 +95,7 @@
                         @endif
                         @if(Entrust::can('ver-compra-proveedores'))
                             <li class="nav-item  ">
-                                <a href="charts_amcharts.html" class="nav-link ">
+                                <a href="{{ route('compraproveedor.list') }}" class="nav-link ">
                                     <i class="fa fa-money"></i>
                                     <span class="title">Compra a Proveedores</span>
                                 </a>
@@ -103,7 +103,7 @@
                         @endif
                         @if(Entrust::can('ver-produccion-dia'))
                             <li class="nav-item  ">
-                                <a href="charts_amcharts.html" class="nav-link ">
+                                <a href="{{ route('produccion.list') }}" class="nav-link ">
                                     <i class="fa fa-upload"></i>
                                     <span class="title">Producción por Día</span>
                                 </a>

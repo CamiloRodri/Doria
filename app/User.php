@@ -34,4 +34,9 @@ class User extends Authenticatable
     {
        return $this->belongsTo(Agente::class);
     }
+
+    public function proveedor()
+    {
+       return $this->hasMany(CompraProveedor::class);
+    }
 }
