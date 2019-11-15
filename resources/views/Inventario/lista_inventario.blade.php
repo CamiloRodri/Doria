@@ -3,7 +3,7 @@
 @section('content')
     @if(Entrust::can('acceder-inventario'))
 
-        <h1 class="page-title"> Inventario
+        <h1 class="page-title"> Ver Inventario
         </h1>
         <div class="page-bar">
             <ul class="page-breadcrumb">

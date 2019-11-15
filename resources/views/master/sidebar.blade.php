@@ -116,7 +116,7 @@
             {{-- Spaguetti --}}
             @if(Entrust::can('acceder-spaguetti'))
                 <li class="nav-item  ">
-                    <a href="javascript;" class="nav-link nav-toggle">
+                    <a href=" {{ route('spaghetti.index') }} " class="nav-link nav-toggle">
                         <i class="fa fa-pagelines"></i>
                         <span class="title">Spaghetti</span>
                         <span class="arrow"></span>
