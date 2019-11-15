@@ -18,8 +18,6 @@ class InventarioController extends Controller
         $inventario = Inventario::all()->first();
         $producto = Producto::find($inventario->id);
 
-        \Debugbar::info($inventario->id);
-
         return view('inventario.lista_inventario', compact('inventario', 'producto'));
     }
 

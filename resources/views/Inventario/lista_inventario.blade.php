@@ -77,31 +77,14 @@
                                     <td style="visibility: hidden" width="1" height="1"> 
                                         {{ $inventario->id }} 
                                     </td>                                   
-                                    <td> {{ $producto->nombre_producto }} </td>
-                                    <td class="center"> {{ $inventario->precio_neto }} </td>
-
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Acciones
-                                                <i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <ul class="dropdown-menu pull-left" role="menu">
-                                                <li>
-                                                    {{-- <a href="{{ route('usuario.show', ['id' => $user->id]) }}">
-                                                        <i class="icon-docs"></i> Editar </a> --}}
-                                                </li>
-                                                <li>
-                                                    {{-- <form action="{{ route('usuario.destroy', ['id' => $user->id]) }}" method="POST">
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('DELETE') }}
-                                                        &nbsp&nbsp
-                                                        <i class="icon-tag"></i>
-                                                        <button type="submit"> Eliminar </button>
-                                                    </form> --}}
-                                                </li>
-
-                                            </ul>
-                                        </div>
+                                    <td> 
+                                        {{ $producto->nombre_producto }} 
+                                    </td>
+                                    <td class="center"> 
+                                        {{ $inventario->cantidad }} 
+                                    </td>
+                                    <td class="center"> 
+                                        {{ $inventario->precio_neto }}
                                     </td>
                                                 
                                 </tr>
