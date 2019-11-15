@@ -9,6 +9,7 @@ use App\Costo;
 use App\User;
 use App\Agente;
 use App\Producto;
+use App\Inventario;
 use App\CompraProveedor;
 
 class ProduccionController extends Controller
@@ -62,6 +63,16 @@ class ProduccionController extends Controller
             'precio_produccion' => 0,
             'producto_id' => $producto
         ]);
+
+        $producto = Producto::where('nombre_producto', 'Spaguetti')->value('id');
+        $inventario = Inventario::where('producto_id', $producto)->value('id');
+        $cantidad = Inventario::where('producto_id', $producto)->value('cantidad');
+
+        $cantidad = (int)$cantidad + (int)$data['number'];
+
+        $invent = Inventario::find($inventario);
+        $invent->cantidad = $cantidad;
+        $invent->update();
         
         //$user->attachRole($rol);
 
@@ -80,6 +91,20 @@ class ProduccionController extends Controller
     {
         $data = request()->all();
         $producto = Producto::where('nombre_producto', 'Spaguetti')->value('id');
+
+        $inventario = Inventario::where('producto_id', $producto)->value('id');
+        $cantidadinventario = Inventario::where('producto_id', $producto)->value('cantidad');
+        
+        $cantidadvieja = Produccion::where('id', $compra->id)->value('cantidad');
+        
+        $cantidadresta = (int)$cantidadvieja - (int)$data['number'];
+
+        $cantidadnueva = $cantidadinventario - $cantidadresta;
+
+        $invent = Inventario::find($inventario);
+        $invent->cantidad = $cantidadnueva;
+        $invent->update();
+
 
         $produccion = Produccion::find($compra->id);
         $produccion->cantidad = $data['number'];
