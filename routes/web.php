@@ -176,3 +176,6 @@ Route::get('/mensual/{fecha}', 'InventarioController@showutilidadmensual')->name
 
 //Spaghetti
 Route::resource('spaghetti', 'SpaghettiController');
+
+//CarritoCompras
+Route::resource('carrito', 'CarritoCompraController');

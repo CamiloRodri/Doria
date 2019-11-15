@@ -60,7 +60,7 @@ class SpaghettiController extends Controller
                 'fecha' => Carbon::now()->format('Y-m-d'),
                 'inventario_id' => '1',
                 'costo_transporte_id' => '1',
-                'usuario_id' => '1',
+                'usuario_id' => Auth::user()->id,
             ]);
         }
         else

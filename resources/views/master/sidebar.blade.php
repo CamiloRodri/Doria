@@ -127,7 +127,7 @@
             {{-- Carrito --}}
             @if(Entrust::can('acceder-carrito'))
             <li class="nav-item  ">
-                <a href="javascript;" class="nav-link nav-toggle">
+                <a href="" class="nav-link nav-toggle">
                     <i class="icon-basket"></i>
                     <span class="title">Carrito</span>
                     <span class="arrow"></span>
@@ -143,7 +143,7 @@
                     @endif
                     @if(Entrust::can('ver-carrito'))
                         <li class="nav-item  ">
-                            <a href="maps_google.html" class="nav-link ">
+                            <a href=" {{ route('carrito.index') }} " class="nav-link ">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="title">Carrito de Compras</span>
                             </a>
