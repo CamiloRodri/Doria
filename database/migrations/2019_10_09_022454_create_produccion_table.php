@@ -21,7 +21,7 @@ class CreateProduccionTable extends Migration
             $table->integer('producto_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->foreign('producto_id')->references('id')->on('producto')->onDelete('cascade');;
         });
     }
 

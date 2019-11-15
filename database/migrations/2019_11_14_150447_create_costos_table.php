@@ -19,8 +19,8 @@ class CreateCostosTable extends Migration
             $table->float('precio');
             $table->integer('cantidad');
             $table->integer('proveedor_id')->unsigned();
-            $table->foreign('produccion_id')->references('id')->on('produccion');
-            $table->foreign('proveedor_id')->references('id')->on('compra_proveedor');
+            $table->foreign('produccion_id')->references('id')->on('produccion')->onDelete('cascade');
+            $table->foreign('proveedor_id')->references('id')->on('compra_proveedor')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -71,11 +71,12 @@
                             </div>
                         </div>
                     </div>
+
                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                         <thead>
                             <tr>
                                 <th style="visibility: hidden"> Numero </th>
-                                <th> Cantidad x Lote </th>
+                                <th> Cantidad de Lote(s) </th>
                                 <th> Fecha </th>
                                 <th> Precio Producción </th>
                                 <th> Editar/Eliminar </th>
@@ -95,8 +96,8 @@
                                 <td class="center"> 
                                     {{ $producido->fecha }}
                                 </td>
-                                <td class="center"> {{ $producido->precio }} </td>
-
+                                <td class="center"> 
+                                    {{ $producido->precio_produccion }}
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Acciones
@@ -105,13 +106,13 @@
                                         <ul class="dropdown-menu pull-left" role="menu">
                                             @if(Entrust::can('editar-costo-transporte')) 
                                                 <li>
-                                                    <a href="{{ route('produccion.show', ['id' => $compra->id]) }}">
+                                                    <a href="{{ route('produccion.show', ['id' => $producido->id]) }}">
                                                         <i class="icon-docs"></i> Editar </a>
                                                 </li>
                                             @endif
                                             @if(Entrust::can('eliminar-costo-transporte'))   
                                                 <li>
-                                                    <form action="{{ route('produccion.destroy', ['id' => $compra->id]) }}" method="POST">
+                                                    <form action="{{ route('produccion.destroy', ['id' => $producido->id]) }}" method="POST">
                                                         {{ csrf_field() }}
                                                         {{ method_field('DELETE') }}
                                                         &nbsp&nbsp
@@ -127,10 +128,12 @@
                             @endforeach
                         </tbody>
                     </table>
-                
+                    <br><br>
+                    
             <!-- END EXAMPLE TABLE PORTLET-->
            
                     @if($cantidad != 0)
+                        &nbsp&nbsp&nbsp&nbsp<h3>Productos Utilizados:</h3>
                         <div>
                             <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                                     <thead>
@@ -151,7 +154,17 @@
                                                 {{ $costo->id }} 
                                             </td>         
                                             <td class="center"> 
-                                                {{ $costo->proveedor_id }}
+                                                {{-- {{ $costo->proveedor_id }} --}}
+                                                @foreach($compraproveedores as $compraproveedor)
+                                                    @foreach($users as $user)
+                                                        @if($compraproveedor->id == $costo->proveedor_id)
+                                                            @if($user->id == $compraproveedor->proveedor_id)
+                                                                {{ $user->name }}
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+
                                             </td>                          
                                             <td class="center"> 
                                                 {{ $costo->cantidad }}
@@ -167,7 +180,7 @@
                                                     <ul class="dropdown-menu pull-left" role="menu">
                                                         @if(Entrust::can('eliminar-costo-transporte'))   
                                                             <li>
-                                                                <form action="{{ route('produccion.destroy', ['id' => $costo->id]) }}" method="POST">
+                                                                <form action="{{ route('costo.destroy', ['id' => $costo->id]) }}" method="POST">
                                                                     {{ csrf_field() }}
                                                                     {{ method_field('DELETE') }}
                                                                     &nbsp&nbsp
@@ -192,10 +205,18 @@
                                         <label class="control-label col-md-3">Proveedor</label>
                                         <div class="col-md-4">                                   
                                             {{-- <select class="bs-select form-control input-small" data-style="btn-primary"> --}}
-                                                <select class="bs-select form-control" data-width="75%" name="autor_id">
+                                                <select class="bs-select form-control" data-width="75%" name="proveedor">
                                                     @foreach($proveedores as $proveedor)
                                                         {{-- <option>{{ $rols->nombre_rol }}</option> --}}
-                                                        <option value="{{$proveedor->id}}">{{$proveedor->name}}</option>
+                                                        <option value="{{$proveedor->id}}">
+
+                                                            {{-- {{$proveedor->proveedor_id}} --}}
+                                                            @foreach($users as $user)
+                                                                @if($user->id == $proveedor->proveedor_id)
+                                                                    {{ $user->name }}
+                                                                @endif
+                                                            @endforeach
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                         </div>
