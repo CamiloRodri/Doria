@@ -23,11 +23,11 @@ class ProduccionController extends Controller
     	$todayDate = Carbon::now();
         $todayDate = $todayDate->format('Y-m-d');
         $produccion = Produccion::whereDate('fecha', '>=', Carbon::now()->format('Y-m-d'));
-        //$cantidad = $produccion->count();
+        $cantidad = $produccion->count();
         $costos = Costo::where('fecha', $todayDate);
         $agente = Agente::where('nombre_agente', '=', 'Proveedor')->value('id');       
         $proveedores = User::where('agente_id', $agente)->get();
-        $cantidad = 1;
+        //$cantidad = 1;
     	return view('Produccion.listado_produccion', compact('produccion', 'cantidad', 'costos', 'proveedores'));     
     }
 
