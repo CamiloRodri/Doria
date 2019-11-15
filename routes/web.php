@@ -163,13 +163,3 @@ Route::post('/costo.crear', 'CostoController@store');
 
 //Inventario
 Route::resource('inventario', 'InventarioController');
-
-//Utilidad
-
-Route::get('/diario', 'InventarioController@showdiario')->name('utilidad.diario');
-
-Route::get('/mensual', 'InventarioController@showmensual')->name('utilidad.mensual');
-
-Route::get('/diario/{fecha}', 'InventarioController@showutilidaddiario')->name('showutilidad.diario');
-
-Route::get('/mensual/{fecha}', 'InventarioController@showutilidadmensual')->name('showutilidad.mensual');
