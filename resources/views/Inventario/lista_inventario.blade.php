@@ -75,10 +75,10 @@
                             <tbody>
                                 <tr class="odd gradeX"> 
                                     <td style="visibility: hidden" width="1" height="1"> 
-                                        {{ $inventario->Id }} 
+                                        {{ $inventario->id }} 
                                     </td>                                   
-                                    <td> {{ $inventario }} </td>
-                                    <td class="center"> {{ $inventario }} </td>
+                                    <td> {{ $producto->nombre_producto }} </td>
+                                    <td class="center"> {{ $inventario->precio_neto }} </td>
 
                                     <td>
                                         <div class="btn-group">

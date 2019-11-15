@@ -15,9 +15,12 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $inventario = Inventario::pluck('id', 'cantidad', 'precio_neto'. 'producto_id');
+        $inventario = Inventario::all()->first();
+        $producto = Producto::find($inventario->id);
 
-        return view('inventario.lista_inventario', compact('inventario'));
+        \Debugbar::info($inventario->id);
+
+        return view('inventario.lista_inventario', compact('inventario', 'producto'));
     }
 
     /**
